@@ -1,9 +1,12 @@
 To Do
 =====
 
-[]Create code frame
-	[]Main program loop file
-	[]Constants file
-	[]Functions file
-	[]Classes file
+Mark when completed.
+K = Kpaiy/Craig
+
+[K]Create code frame
+	[K]Main program loop file
+	[K]Constants file
+	[K]Functions file
+	[K]Classes file
 	
