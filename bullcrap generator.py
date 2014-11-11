@@ -11,20 +11,27 @@ in the getSentence function.
 verbs = [["jump","jumps","jumping","jumped"],
 		["kick","kicks","kicking","kicked"],
 		["seek","seeks","seeking","sought"],
-		["close","closes","closing","closed"]]
+		["close","closes","closing","closed"],
+		["slap","slaps","slapping","slapped"],
+		["fly","flies","flying","flew"]]
 
 #0 = singular, 1 = plural
 nouns = [["dog","dogs"],
          ["sword","swords"],
          ["beard","beards"],
-         ["man","men"]]
+         ["man","men"],
+		 ["boat","boats"],
+		 ["fish","fish"],
+		 ["dragon","dragons"]]
 
 adjectives = ["old","silly","rusty","dissheveled","confused",
-              "disoriented","intelligent"]
+              "disoriented","intelligent","slimy","discoloured",
+			  "tired","paranoid"]
 
-adverbs = ["lovingly","carefully","cautiously","distractedly"]
+adverbs = ["lovingly","carefully","cautiously","distractedly","unwittingly",
+			"lazily","quickly","tiredly"]
 
-passages = 2
+passages = 3 #Set to number of passages in the getSentence function.
 
 
 '''
@@ -58,8 +65,12 @@ def getSentence():
 		out = ("The " + getNoun(random.randrange(1)) + " " + getAdverb() + " " + getVerb(3) + " the " + getNoun(random.randrange(1)) + ".")
 	if picker == 1:
 		out = ("The " + getAdjective() + " " + getNoun(1) + " were " + getVerb(3) + " by the " + getAdjective() + " " + getNoun(random.randrange(1)) + ".")
+	if picker == 2:
+		out = ("Why, oh why, does the " + getAdjective() + " " + getNoun(0) + " " + getVerb(0) + "?")
 	return(out)
 
 #print("The",getNoun(random.randrange(1)),getAdverb(),getVerb(3),"the",getNoun(random.randrange(1)) + ".")
 
 print(getSentence())
+print()
+input("Press enter to close.")
