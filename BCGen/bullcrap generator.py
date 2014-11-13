@@ -1,4 +1,4 @@
-import random, os
+import random, os, string
 
 loops = 5
 '''
@@ -7,7 +7,10 @@ However, with passages, I wanted to get unique sentence frames each time.
 To do this, I had to state the amount of passages and use an if statement
 in the getSentence function.
 '''
-
+passage_list = []
+passages_file = open('passages.db')
+for line in passages_file:
+	passage_list.append(line)
 #0 = imperative, 1 = present, 2 = continuous, 3 = perfect, 4 = perfect passive participle
 verbs_file = open('verbs.db')
 nouns_file = open('nouns.db')
@@ -66,22 +69,31 @@ def getAdverb():
         return(random.choice(adverbs))
 
 def getSentence():
-	picker = random.randrange(passages)
-	if picker == 0:
-		out = ("The " + getNoun(random.randrange(1)) + " " + getAdverb() + " " + getVerb(3) + " the " + getNoun(random.randrange(1)) + ".")
-	if picker == 1:
-		out = ("The " + getAdjective() + " " + getNoun(1) + " were " + getVerb(4) + " by the " + getAdjective() + " " + getNoun(random.randrange(1)) + ".")
-	if picker == 2:
-		out = ("Why, oh why, does the " + getAdjective() + " " + getNoun(0) + " " + getVerb(0) + "?")
-	if picker == 3:
-		out = ("Your " + getAdjective() + " " + getNoun(random.randrange(1)) + " is as " + getAdjective() + " as the " + getAdjective() + " " + getNoun(random.randrange(1)) + ".")
-	if picker == 4:
-		out = ("Stop " + getAdverb() + " " + getVerb(2) + " the " + getAdjective() + " " + getNoun(0) + "!")
-	if picker == 5:
-		out = ("Why must you " + getVerb(0) + " the " + getNoun(1) + "?")
-	if picker == 6:
-		out = ("You're just like the " + getAdjective() + " " + getNoun(0) + ", in that you both " + getAdverb() + " " + getVerb(0) + ".")
-	return(out)
+	out = []
+	for word in random.choice(passage_list).split():
+		if word[-1:] in string.punctuation:
+			stripped_word = word[:-1]
+			punctuation = word[-1:]
+		else:
+			stripped_word = word
+			punctuation = ''
+		if '::' in stripped_word:
+			identifier = stripped_word.split('::')[0]
+			number = stripped_word.split('::')[1]
+			number = [int(x) for x in number.split(',')]
+			number = random.choice(number)
+			if identifier == 'verb':
+				out.append(getVerb(number)+punctuation)
+			if identifier == 'noun':
+				out.append(getNoun(number)+punctuation)
+		else:
+			if stripped_word == 'adverb':
+				out.append(getAdverb()+punctuation)
+			elif stripped_word == 'adjective':
+				out.append(getAdjective()+punctuation)
+			else:
+				out.append(word)
+	return(' '.join(out))
 
 #print("The",getNoun(random.randrange(1)),getAdverb(),getVerb(3),"the",getNoun(random.randrange(1)) + ".")
 while True:
