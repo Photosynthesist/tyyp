@@ -1,4 +1,4 @@
-import random, os, string
+import random, os, string, re
 
 loops = 5
 '''
@@ -87,7 +87,11 @@ def getSentence():
 			if identifier == 'noun':
 				out.append(getNoun(number)+punctuation)
 		else:
-			if stripped_word == 'adverb':
+			if stripped_word == 'verb':
+				out.append(getVerb(random.randrange(5))+punctuation)
+			elif stripped_word == 'noun':
+				out.append(getVerb(random.randrange(2))+punctuation)
+			elif stripped_word == 'adverb':
 				out.append(getAdverb()+punctuation)
 			elif stripped_word == 'adjective':
 				out.append(getAdjective()+punctuation)
@@ -99,8 +103,7 @@ def getSentence():
 while True:
 	for i in range(loops):
 		sentence = getSentence()
-		sentence.replace('the yourmother','your mother')
-		sentence.replace('yourmother','your mother')
+		sentence = re.sub('_',' ! ',sentence)
 		if 'overdosing primeminister' in sentence:
 			cotop = open('the_chronicles_of_the_overdosed_prime_minister.txt','a')
 			cotop.write(sentence + '\n')
