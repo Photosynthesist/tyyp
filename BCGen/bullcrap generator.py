@@ -97,13 +97,12 @@ def getSentence():
 				out.append(getAdjective()+punctuation)
 			else:
 				out.append(word)
-	return(' '.join(out))
+	return(re.sub('_',' ',' '.join(out)))
 
 #print("The",getNoun(random.randrange(1)),getAdverb(),getVerb(3),"the",getNoun(random.randrange(1)) + ".")
 while True:
 	for i in range(loops):
 		sentence = getSentence()
-		sentence = re.sub('_',' ! ',sentence)
 		if 'overdosing primeminister' in sentence:
 			cotop = open('the_chronicles_of_the_overdosed_prime_minister.txt','a')
 			cotop.write(sentence + '\n')
