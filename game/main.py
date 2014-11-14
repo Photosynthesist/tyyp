@@ -20,7 +20,7 @@ done:			Used to loop main program loop.
 '''
 
 #INITIATION
-screen = pygame.display.set_mode((width,height),FULLSCREEN)
+screen = pygame.display.set_mode(SCREEN_SIZE)
 
 #MAIN PROGRAM LOOP
 while not done:
@@ -35,8 +35,7 @@ while not done:
 	#Game Logic
 	
 	#Drawing Code
-	screen.fill(WHITE)
-	
+	Screen.draw(screen)
 	pygame.display.flip()
 	clock.tick(FRAMERATE)
 	

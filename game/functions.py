@@ -1,6 +1,7 @@
 # No functions yet.
 # WRONG!
-import random, os, string, re
+import random, os, string, re, pygame
+from constants import *
 class BullCrap():
 	def init():
 		os.chdir('Resources//')
@@ -105,4 +106,8 @@ class BullCrap():
 class Objects():
 	pass
 class Screen():
-	pass
+	def draw(screen):
+		screen.fill(GREY)
+		pygame.draw.rect(screen,ORANGE,(ORANGE_TRIANGLE))
+		pygame.draw.rect(screen,BLUE,(BLUE_TRIANGLE))
+		pygame.draw.rect(screen,WHITE,(SCREEN_GAP,SCREEN_GAP,SCREEN_WIDTH - SCREEN_GAP*2,SCREEN_HEIGHT - SCREEN_GAP*2))
