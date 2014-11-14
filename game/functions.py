@@ -102,5 +102,7 @@ class BullCrap():
 				else:
 					out.append(word)
 		return(re.sub('_',' ',' '.join(out)))
-BullCrap.init()
-print(BullCrap.getSentence())
+class Objects():
+	pass
+class Screen():
+	pass
