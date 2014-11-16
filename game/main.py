@@ -21,6 +21,7 @@ done:			Used to loop main program loop.
 
 #INITIATION
 screen = pygame.display.set_mode(SCREEN_SIZE)
+pygame.display.set_caption("Tyyp")
 
 #MAIN PROGRAM LOOP
 while not done:

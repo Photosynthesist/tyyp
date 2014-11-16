@@ -1,6 +1,7 @@
 To Do
 =====
 Mark when completed.
+Use parentheses for assignment.
 
 PEOPLE
 =====
@@ -17,6 +18,10 @@ PROGRAMMING
 	[K]Classes file
 [W]Add BCGen to the functions and stuff
 	[W]Shorten it and stuff
+	
+[]Button Class (K)
+	[K]Allow button drawing
+	[]Detect click on button (K)
 	
 []Create text fields
 	[]Determine input module (must be fast)
