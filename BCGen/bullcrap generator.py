@@ -11,7 +11,7 @@ passage_list = []
 passages_file = open('passages.db')
 for line in passages_file:
 	passage_list.append(line)
-#0 = imperative, 1 = present, 2 = continuous, 3 = perfect, 4 = perfect passive participle
+#0 = imperative, 1 = active present, 2 = continuous (present active participle), 3 = active perfect, 4 = perfect passive participle
 verbs_file = open('verbs.db')
 nouns_file = open('nouns.db')
 adjectives_file = open('adjectives.db')
@@ -90,7 +90,7 @@ def getSentence():
 			if stripped_word == 'verb':
 				out.append(getVerb(random.randrange(5))+punctuation)
 			elif stripped_word == 'noun':
-				out.append(getVerb(random.randrange(2))+punctuation)
+				out.append(getVerb(random.randrange(2))+punctuation)	# this should probably append a noun, not a verb
 			elif stripped_word == 'adverb':
 				out.append(getAdverb()+punctuation)
 			elif stripped_word == 'adjective':
