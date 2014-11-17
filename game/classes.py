@@ -20,5 +20,8 @@ class Button():
 		self.br = br
 		self.width = br[0] - tl[0]
 		self.height = br[1] - tl[1]
+		self.rectangle = (self.tl[0],self.tl[1],self.width,self.height)
 	def draw(self,screen):
-		pygame.draw.rect(screen,GREY,(self.tl[0],self.tl[1],self.width,self.height))
+		pygame.draw.rect(screen,GREY,self.rectangle)
+		#pygame.draw.rect(self.rect)
+			
