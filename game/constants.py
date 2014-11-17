@@ -2,8 +2,8 @@
 #				  R   G   B
 WHITE			=	(255,255,255)
 BLACK			=	(  0,  0,  0)
-ORANGE			=	(255,201,14)
-BLUE			=	(0,162,232)
+ORANGE			=	(255,153,0)
+BLUE			=	(3,158,252)
 GREY			=	(150,150,150)
 SCREEN_SIZE		=	(800,600)
 SCREEN_WIDTH	=	SCREEN_SIZE[0]

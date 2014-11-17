@@ -23,6 +23,8 @@ done:			Used to loop main program loop.
 screen = pygame.display.set_mode(SCREEN_SIZE)
 pygame.display.set_caption("Tyyp")
 
+buttons = [Button((10,200),(200,250)),Button((10,260),(200,310))]
+
 #MAIN PROGRAM LOOP
 while not done:
 	#Event grabber
@@ -37,6 +39,8 @@ while not done:
 	
 	#Drawing Code
 	Screen.draw(screen)
+	for button in buttons:
+		button.draw(screen)
 	pygame.display.flip()
 	clock.tick(FRAMERATE)
 	

@@ -10,12 +10,11 @@ So far, it only draws a rectangle of specified dimensions to the screen.
 It will later on be made to respond to clicking.
 
 To create a Button:
-but1 = Button()
-but1.init((top_left_X,top_left_Y),(bottom_right_X,bottom_right_Y))
+but1 = Button((top_left_X,top_left_Y),(bottom_right_X,bottom_right_Y))
 
 '''
 class Button():
-	def init(self,tl,br):
+	def __init__(self,tl,br):
 		print(tl,br)
 		self.tl = tl
 		self.br = br
